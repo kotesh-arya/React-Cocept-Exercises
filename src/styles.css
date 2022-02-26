@@ -9,10 +9,10 @@ h2 {
 body {
   background-color: black;
 }
-button {
-  width: 4rem;
+/* button {
+  width: 8rem;
   height: 4rem;
-}
+} */
 span {
   font-size: 2rem;
   margin-top: 2rem;

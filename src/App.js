@@ -45,6 +45,40 @@ export default function App() {
   //  }
   // ------------------------useState-React-Docs(Ex-3-Checkbox)----------------------
 
+  // ------------------------useState-React-Docs(Ex-4-TwoVariables)----------------------
+  // const [user, setUser] = useState("");
+  // const [age, setAge] = useState(22);
+
+  // const onChangeHandler = (e) => {
+  //   setUser(e.target.value);
+  // };
+  // const ageIncrement = () => {
+  //   setAge((age) => age + 1);
+  // };
+
+  // ------------------------useState-React-Docs(Ex-4-TwoVariables)----------------------
+
+  // ------------------------useState-React-Docs(ObjectsAndArraysInState)----------------------
+
+  const [data, setData] = useState({
+    firstName: "kotesh",
+    secondName: "mudila",
+    mail: "(kotesswarraomudila@gmail.com)"
+  });
+  // const firstName = data.firstName;
+  // const secondName = data.secondName;
+  // const mail = data.mail;
+  const handleFirstChange = (e) => {
+    setData({ ...data, firstName: e.target.value });
+  };
+  const handleLastChange = (e) => {
+    setData({ ...data, secondName: e.target.value });
+  };
+  const handleMailChange = (e) => {
+    setData({ ...data, mail: e.target.value });
+  };
+  // ------------------------useState-React-Docs(ObjectsAndArraysInState)----------------------
+
   return (
     <div className="App">
       {/* ------------------------Dev-Ed-simplified-example---------------------- */}
@@ -58,8 +92,37 @@ export default function App() {
       {/* 
      <input onChange={onChangeHandler} type="checkbox" checked ={liked}></input>
      <p> {liked ? "likes this" :"Don't like this"}</p> */}
-
-      {/* ------------------------useState-React-Docs---------------------- */}
+      {/* ------------------------useState-React-Docs(Ex-3-Checkbox)---------------------- */}
+      {/* ------------------------useState-React-Docs(Ex-4-TwoVariables)---------------------- */}
+      {/* <input onChange={onChangeHandler}></input> <br /> <br />
+      <button onClick={ageIncrement}>Increment Age</button>
+      <p>
+        Hello, {user}. You are {age}
+      </p> */}
+      {/* ------------------------useState-React-Docs(Ex-4-TwoVariables)---------------------- */}
+      {/* ------------------------useState-React-Docs(ObjectsAndArraysInState)---------------------- */}
+      <input
+        onChange={handleFirstChange}
+        type="text"
+        value={data.firstName}
+      ></input>{" "}
+      <br /> <br />
+      <input
+        onChange={handleLastChange}
+        type="text"
+        value={data.secondName}
+      ></input>{" "}
+      <br /> <br />
+      <input
+        onChange={handleMailChange}
+        type="email"
+        value={data.mail}
+      ></input>{" "}
+      <br /> <br />
+      <p>
+        {data.firstName}| {data.secondName} | ({data.mail})
+      </p>
+      {/* ------------------------useState-React-Docs(ObjectsAndArraysInState)---------------------- */}
     </div>
   );
 }
