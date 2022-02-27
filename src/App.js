@@ -1,5 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
+import AddTodo from "./AddTodo";
+import TaskList from "./TaskList";
 export default function App() {
   // const [like, setLike] = useState(false);
   // const headclick = () => {
@@ -81,46 +83,49 @@ export default function App() {
 
   // ---------------5---------useState-React-Docs(NestedObjectInState)----------------------
 
-  const [person, setPerson] = useState({
-    name: "King",
-    artwork: {
-      title: "Kotesh Mudila",
-      city: "Javascript",
-      image:
-        "https://pbs.twimg.com/profile_images/1473707125641732108/NVdKk04p_400x400.jpg"
-    }
-  });
+  // const [person, setPerson] = useState({
+  //   name: "King",
+  //   artwork: {
+  //     title: "Kotesh Mudila",
+  //     city: "Javascript",
+  //     image:
+  //       "https://pbs.twimg.com/profile_images/1473707125641732108/NVdKk04p_400x400.jpg"
+  //   }
+  // });
 
-  const titleChange = (e) => {
-    setPerson({
-      ...person, //copy the spreaded person object first
-      artwork: {
-        //create a new copy of artwork object by writing it hardcoded below
-        ...person.artwork, // same data from artwork object
-        title: e.target.value
-      }
-    });
-  };
+  // const titleChange = (e) => {
+  //   setPerson({
+  //     ...person, //copy the spreaded person object first
+  //     artwork: {
+  //       //create a new copy of artwork object by writing it hardcoded below
+  //       ...person.artwork, // same data from artwork object
+  //       title: e.target.value
+  //     }
+  //   });
+  // };
 
-  const cityChange = (e) => {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        city: e.target.value
-      }
-    });
-  };
-  const imageChange = (e) => {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        image: e.target.value
-      }
-    });
-  };
+  // const cityChange = (e) => {
+  //   setPerson({
+  //     ...person,
+  //     artwork: {
+  //       ...person.artwork,
+  //       city: e.target.value
+  //     }
+  //   });
+  // };
+  // const imageChange = (e) => {
+  //   setPerson({
+  //     ...person,
+  //     artwork: {
+  //       ...person.artwork,
+  //       image: e.target.value
+  //     }
+  //   });
+  // };
   // -------------5-----------useState-React-Docs(NestedObjectInState)----------------------
+  // -------------6-----------useState-React-Docs(ArrayInState)----------------------
+
+  // -------------6-----------useState-React-Docs(ArrayInState)----------------------
 
   return (
     <div className="App">
@@ -167,7 +172,7 @@ export default function App() {
       </p> */}
       {/* -------------------4-----useState-React-Docs(ObjectInState)---------------------- */}
       {/* -----------5-------------useState-React-Docs(nestedObjectInState)---------------------- */}
-      <input
+      {/* <input
         onChange={titleChange}
         type="text"
         value={person.artwork.title}
@@ -189,8 +194,14 @@ export default function App() {
         {" "}
         {person.artwork.title} {person.artwork.city} {person.artwork.image}
       </p>
-      <img src={person.artwork.image} />
+      <img src={person.artwork.image} alt={person.artwork.image} /> */}
       {/* ------------5------------useState-React-Docs(nestedObjectInState)---------------------- */}
+      {/* ------------6------------useState-React-Docs(ArrayInState)---------------------- */}
+
+      <AddTodo />
+      <TaskList />
+
+      {/* ------------6------------useState-React-Docs(ArrayInState)---------------------- */}
     </div>
   );
 }
