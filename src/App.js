@@ -2,7 +2,41 @@ import "./styles.css";
 import { useState } from "react";
 import AddTodo from "./AddTodo";
 import TaskList from "./TaskList";
+let nextId = 3;
+const initialTodos = [
+  { id: 0, title: "Buy milk", done: true },
+  { id: 1, title: "Buy milk", done: false },
+  { id: 2, title: "Buy milk", done: false }
+];
 export default function App() {
+  // -------------6-----------useState-React-Docs(ArrayInState)----------------------
+  const [todos, setTodos] = useState(initialTodos);
+  const handleAddTodo = (title) => {
+    setTodos([
+      ...todos,
+      {
+        id: nextId++, //just create a new Todo by giving a new ID
+        title: title, //title [setTitle("xxx")] comes from AddTodo component
+        done: false //unchecked new todo
+      }
+    ]);
+  };
+  const handleChangeTodo = (nextTodo) => {
+    setTodos(
+      todos.map((t) => {
+        if (t.id === nextTodo.id) {
+          return nextTodo;
+        } else {
+          return t;
+        }
+      })
+    );
+  };
+  const handleDeleteTodo = (todoId) => {
+    setTodos(todos.filter((task) => task.id !== todoId));
+  };
+  // -------------6-----------useState-React-Docs(ArrayInState)----------------------
+
   // const [like, setLike] = useState(false);
   // const headclick = () => {
   //   //updating the count variable each time the head gets clicked
@@ -123,12 +157,19 @@ export default function App() {
   //   });
   // };
   // -------------5-----------useState-React-Docs(NestedObjectInState)----------------------
-  // -------------6-----------useState-React-Docs(ArrayInState)----------------------
-
-  // -------------6-----------useState-React-Docs(ArrayInState)----------------------
 
   return (
     <div className="App">
+      {/* ------------6------------useState-React-Docs(ArrayInState)---------------------- */}
+
+      <AddTodo onAddTodo={handleAddTodo} />
+      <TaskList
+        todos={todos}
+        onChangeTodo={handleChangeTodo}
+        onDeleteTodo={handleDeleteTodo}
+      />
+
+      {/* ------------6------------useState-React-Docs(ArrayInState)---------------------- */}
       {/* -------------1-----------Dev-Ed-simplified-example---------------------- */}
       {/* <button onClick={decrementValue}>-</button>
       <span>
@@ -196,12 +237,6 @@ export default function App() {
       </p>
       <img src={person.artwork.image} alt={person.artwork.image} /> */}
       {/* ------------5------------useState-React-Docs(nestedObjectInState)---------------------- */}
-      {/* ------------6------------useState-React-Docs(ArrayInState)---------------------- */}
-
-      <AddTodo />
-      <TaskList />
-
-      {/* ------------6------------useState-React-Docs(ArrayInState)---------------------- */}
     </div>
   );
 }

@@ -22,3 +22,6 @@ span {
   align-items: center;
   justify-content: center;
 }
+li {
+  list-style-type: none;
+}
