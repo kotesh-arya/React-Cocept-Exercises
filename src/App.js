@@ -157,6 +157,11 @@ export default function App() {
   //   });
   // };
   // -------------5-----------useState-React-Docs(NestedObjectInState)----------------------
+  const [him, setHim] = useState("Taylor");
+  const [textSize, setTextSIze] = useState("4rem");
+  const resetInput = () => {
+    setHim("User");
+  };
 
   return (
     <div className="App">
@@ -237,6 +242,9 @@ export default function App() {
       </p>
       <img src={person.artwork.image} alt={person.artwork.image} /> */}
       {/* ------------5------------useState-React-Docs(nestedObjectInState)---------------------- */}
+      <input onChange={(e) => setHim(e.target.value)} value={him} />
+      <button onClick={resetInput}>RESET</button>
+      <p style={{ fontSize: textSize }}>Hey! {him}</p>
     </div>
   );
 }
