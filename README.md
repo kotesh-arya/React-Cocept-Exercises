@@ -1,2 +1,2 @@
 # React-Cocept-Exercises
-Created with CodeSandbox
+## Live Exercises and Assignment exercises
